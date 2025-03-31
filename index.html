@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mai Land</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        img {
+            pointer-events: none;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Pacifico', cursive;
+            font-size: 48px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .container-wrapper {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 100px auto;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: auto;
+            border: 3px solid white;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            flex: 0 0 250px;
+        }
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px;
+            padding: 10px 20px;
+            background: white;
+            color: #4facfe;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .buttons a img {
+            width: 20px;
+            height: 20px;
+        }
+        .buttons a:hover {
+            background: #00f2fe;
+            color: white;
+        }
+        .server-info {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 10px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: left;
+        }
+        .server-info h2 {
+            font-size: 28px;
+            color: #ffcc00;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .server-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .server-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .server-info ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .server-info ul li::before {
+            content: "🌸";
+            font-size: 18px;
+        }
+        .server-info ul li b {
+            color: #ffcc00;
+        }
+        .server-preview img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+        .language-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .language-toggle button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .language-toggle button:hover {
+            background: #00f2fe;
+        }
+        .rules-content {
+            display: none;
+        }
+        .rules-content.active {
+            display: block;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body oncontextmenu="return false">
+    <div class="header">Mai Land</div>
+    <div class="container-wrapper">
+        <div class="logo-box">
+            <img src="logo.png" alt="Discord Server Logo" class="logo">
+        </div>
+        <div class="container">
+            <h1>This is Mai Land .</h1>
+            <p>Chúng mình có một máy chủ tuyệt vời cho các bạn nè! Nhấn ngay vào nút Tham gia máy chủ để trở thành thành viên của Vùng Đất Mai!:3</p>
+            <div class="buttons">
+                <a href="https://discord.gg/sNEfeZDW" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Logo"> Tham gia Discord
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="server-info">
+        <h2 id="rules-title">🌸 Luật Lệ của máy chủ 🇻🇳</h2>
+        <div class="language-toggle">
+            <button onclick="showRules('vi')">Tiếng Việt</button>
+            <button onclick="showRules('en')">English</button>
+        </div>
+        <div id="rules-vi" class="rules-content active">
+            <ul>
+                <li><b>Đối với Tin Nhắn Văn Bản:</b></li>
+                <li>221 | Tôn trọng lẫn nhau mọi lúc (Không Xúc Phạm, Lăng Mạ, Người Khác trực tiếp trong máy chủ)</li>
+                <li>222 | Không Phân Biệt/Kì Thị (Màu Da, Dân Tộc, Phân Biệt Vùng Miền trong máy chủ)</li>
+                <li>223 | Không Tiết lộ thông cá nhân của người khác khi không được cho phép</li>
+                <li>224 | Không Dms/"Tin nhắn Trực Tiếp" Quấy rối, Làm Phiền người khác</li>
+                <li>321 | Không Gửi link Quảng Cáo trong máy chủ (Đương nhiên Quảng Cáo bị cấm là các Quảng Cáo Lừa Đảo, Quảng Cáo cho các hành vi Phạm Pháp)</li>
+                <li>122 | Không gửi ảnh NSFW vào các kênh chính của máy chủ, máy chủ đã có 1 kênh riêng cho điều đó (mở khóa kênh tại Channels & Roles)</li>
+                <li><b>Đối với Kênh Giọng nói:</b></li>
+                <li>054 | Tuyệt Đối không có hành vi phá đám kênh giọng nói/voice của người khác</li>
+                <li>062 | Không sử dụng kênh giọng nói với mục đích công kích nhau bằng từ ngữ không hay</li>
+                <li>011 | Không cướp bot nhạc của người khác</li>
+                <li><b>Ngoại lệ:</b></li>
+                <li>> Có thể sử dụng Tiếng Anh tại Kênh Chính của máy chủ</li>
+                <li>> Có thể gửi ảnh trong kênh chat không thông qua Files</li>
+            </ul>
+            <p>Chúc bạn có 1 trải nghiệm tuyệt vời với máy chủ!:3</p>
+        </div>
+        <div id="rules-en" class="rules-content">
+            <ul>
+                <li><b>For Text Messages:</b></li>
+                <li>221 | Respect each other at all times (No Insulting, Insulting, or Directly Addressing Others in the Server)</li>
+                <li>222 | No Discrimination/Discrimination (Skin Color, Ethnicity, or Regional Discrimination in the Server)</li>
+                <li>223 | Do Not Disclose Personal Information of Others Without Permission</li>
+                <li>224 | Do Not Dms/"Direct Message" Harassing or Annoyance of Others</li>
+                <li>321 | Do Not Send Advertising Links in the Server (Of course, Advertising is prohibited for Fraudulent Advertising, Advertising for Illegal Activities)</li>
+                <li>122 | Do not send NSFW images to the main channels of the server, the server has a separate channel for that (unlock the channel at Channels & Roles)</li>
+                <li><b>For Voice Channel:</b></li>
+                <li>054 | Absolutely do not disrupt other people's voice channels</li>
+                <li>062 | Do not use voice channels to attack each other with bad words</li>
+                <li>011 | Do not steal other people's music bots</li>
+                <li><b>Exception:</b></li>
+                <li>> English can be used in the Main Channel of the server</li>
+                <li>> Photos can be sent in the chat channel without going through Files</li>
+            </ul>
+            <p>Hope you have a great experience with the server!:3</p>
+        </div>
+        <h2>Xem trước server</h2>
+        <div class="server-preview">
+            <img src="server-preview.jpg" alt="Xem trước server">
+        </div>
+    </div>
+    <script>
+        function showRules(language) {
+            document.getElementById('rules-vi').classList.remove('active');
+            document.getElementById('rules-en').classList.remove('active');
+            document.getElementById(`rules-${language}`).classList.add('active');
+
+            const title = document.getElementById('rules-title');
+            if (language === 'vi') {
+                title.textContent = '🌸 Luật Lệ của máy chủ 🇻🇳';
+            } else if (language === 'en') {
+                title.textContent = '🌸 Server Rules 🇺🇸';
+            }
+        }
+    </script>
+</body>
+</html>
