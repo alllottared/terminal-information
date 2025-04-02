@@ -1,0 +1,394 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+img {
+    pointer-events: none;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; /* Add spacing below the header */
+}
+
+.container-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 100px auto; /* Add spacing for scrolling */
+}
+
+.container {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffcc00;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: auto;
+    border: 3px solid white;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    flex: 0 0 250px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+    background: white;
+    color: #4facfe;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.buttons a img {
+    width: 20px;
+    height: 20px;
+}
+
+.buttons a:hover {
+    background: #007acc; /* Đậm hơn màu xanh hiện tại */
+    color: white;
+}
+
+.server-info {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: left;
+}
+
+.server-info h2 {
+    font-size: 28px;
+    color: #ffcc00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.server-info p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.server-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.server-info ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.server-info ul li::before {
+    content: "🌸";
+    font-size: 18px;
+}
+
+.server-info ul li b {
+    color: #ffcc00;
+}
+
+.server-preview img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.language-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.language-toggle button,
+.creator-button button {
+    padding: 10px 20px;
+    margin: 5px;
+    background: #4facfe;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.language-toggle button:hover,
+.creator-button button:hover {
+    background: #00f2fe;
+}
+
+.rules-content {
+    display: none;
+}
+
+.rules-content.active {
+    display: block;
+}
+
+.creator-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Chiều cao toàn màn hình */
+    text-align: center;
+}
+
+.centered-content h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffcc00;
+}
+
+.centered-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+centered-content ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    color: white;
+}
+
+centered-content button {
+    padding: 10px 20px;
+    background: #4facfe;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.centered-content button:hover {
+    background: #00f2fe;
+}
+
+.box {
+    background: rgba(0, 0, 0, 0.7); /* Nền mờ */
+    padding: 20px;
+    border-radius: 10px; /* Bo góc */
+    border: 2px solid #4facfe; /* Viền */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    max-width: 400px;
+    margin: 20px auto; /* Căn giữa */
+}
+
+.box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.box ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    color: white;
+}
+
+.server-info-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background: white;
+    color: #4facfe;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.server-info-button:hover {
+    background: #007acc; /* Đậm hơn màu xanh hiện tại */
+    color: white;
+}
+
+#snow-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.poster {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.poster-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#track-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#track-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#track-author {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.player-controls button:hover {
+    color: #1db954; /* Spotify green */
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.progress-bar input[type="range"] {
+    flex: 1;
+    margin: 0 10px;
+    -webkit-appearance: none;
+    background: #555;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.progress-bar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.control-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%); /* Đổi màu biểu tượng thành trắng */
+    transition: transform 0.2s ease;
+}
+
+button:hover .control-icon {
+    transform: scale(1.2); /* Phóng to khi hover */
+    filter: invert(70%) sepia(100%) saturate(500%) hue-rotate(90deg); /* Màu xanh Spotify */
+}
