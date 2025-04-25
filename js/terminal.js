@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waitingForPassword = false;
             passwordAttempts = 0;
             setTimeout(() => {
-                window.location.href = 'social.html';
+                window.location.href = './social.html';
             }, 1000);
         } else {
             passwordAttempts++;
