@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    background-image: url('../../wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: monospace;
+    overflow: hidden;
+}
+
+.terminal {
+    width: 72%;  /* Reduced from 80% */
+    max-width: 810px;  /* Reduced from 900px */
+    height: 54vh;  /* Reduced from 60vh */
+    background-color: rgba(0, 0, 0, 0.85);  /* Make terminal slightly transparent */
+    color: #ffffff;
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    resize: both;
+    min-width: 360px;  /* Reduced from 400px */
+    min-height: 270px;  /* Reduced from 300px */
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #2b2b2b;
+    cursor: move;
+    user-select: none;
+}
+
+.title-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.title-bar-right {
+    display: flex;
+    gap: 8px;
+}
+
+.window-control {
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.window-control:hover {
+    background-color: #404040;
+}
+
+.close:hover {
+    background-color: #c42b1c;
+}
+
+.terminal-content {
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    opacity: 0.95;
+}
+
+.terminal-output {
+    margin-bottom: 0;
+    white-space: pre-wrap;
+    font-size: 16px;  /* Reduced from 18px */
+    line-height: 1.2;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 12px;
+}
+
+.command-line {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 12px;
+    background-color: #000000;
+    border-top: 1px solid #333;
+}
+
+.prompt {
+    color: #ffffff;
+    font-size: 16px;  /* Reduced from 18px */
+}
+
+.command-input {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;  /* Reduced from 18px */
+    flex-grow: 1;
+    outline: none;
+    line-height: 1.2;
+    margin-left: 4px;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
