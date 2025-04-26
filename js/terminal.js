@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let waitingForPassword = false;
     let passwordAttempts = 0;
 
-    // Dragging functionality
+    // Drag functionality for both mouse and touch events
     let isDragging = false;
     let currentX;
     let currentY;
@@ -22,29 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let xOffset = 0;
     let yOffset = 0;
 
+    // Touch events
+    titleBar.addEventListener('touchstart', dragStart);
+    document.addEventListener('touchend', dragEnd);
+    document.addEventListener('touchmove', drag);
+
+    // Mouse events
     titleBar.addEventListener('mousedown', dragStart);
-    document.addEventListener('mousemove', drag);
     document.addEventListener('mouseup', dragEnd);
+    document.addEventListener('mousemove', drag);
 
     function dragStart(e) {
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
+        if (e.type === 'touchstart') {
+            initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset;
+        } else {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+        }
 
         if (e.target === titleBar || e.target.parentNode === titleBar) {
             isDragging = true;
-        }
-    }
-
-    function drag(e) {
-        if (isDragging) {
-            e.preventDefault();
-            currentX = e.clientX - initialX;
-            currentY = e.clientY - initialY;
-
-            xOffset = currentX;
-            yOffset = currentY;
-
-            setTranslate(currentX, currentY, terminal);
         }
     }
 
@@ -52,6 +50,25 @@ document.addEventListener('DOMContentLoaded', () => {
         initialX = currentX;
         initialY = currentY;
         isDragging = false;
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+            } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+            }
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            setTranslate(currentX, currentY, terminal);
+        }
     }
 
     function setTranslate(xPos, yPos, el) {
