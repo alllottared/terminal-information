@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #222831;
+            color: #EEEEEE;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #393E46;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: #222831;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #EEEEEE;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .social-link:hover {
+            transform: translateX(10px);
+        }
+        h1 {
+            color: #EEEEEE;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+        }
+
+        h1:hover {
+            color: #FFFFFF;
+            text-shadow: 
+                0 0 5px #FFFFFF,
+                0 0 10px #FFFFFF,
+                0 0 15px #00ADB5,
+                0 0 20px #00ADB5;
+        }
+        .icon {
+            width: 35px;
+            height: 35px;
+            margin-right: 20px;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+        .social-link:hover .icon {
+            transform: scale(1.1);
+        }
+        .social-text {
+            font-size: 1.2em;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .container {
+            animation: fadeIn 0.8s ease-out;
+        }
+        .social-link {
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+        .social-link:nth-child(2) { animation-delay: 0.2s; }
+        
+        /* Updating hover effects for platform-specific colors */
+        .social-link.discord:hover {
+            border-color: #5865F2;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+        
+        .social-link.spotify:hover {
+            border-color: #1DB954;
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+        }
+
+        /* Platform-specific colors for NameMC */
+        .social-link.namemc:hover {
+            border-color: #2196F3;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+        
+        /* Platform-specific icon colors on hover */
+        .social-link.discord:hover .icon {
+            filter: brightness(0) saturate(100%) invert(40%) sepia(89%) saturate(1234%) hue-rotate(221deg) brightness(100%) contrast(101%);
+        }
+        
+        .social-link.spotify:hover .icon {
+            filter: brightness(0) saturate(100%) invert(62%) sepia(83%) saturate(361%) hue-rotate(93deg) brightness(95%) contrast(93%);
+        }
+
+        /* Minecraft enchantment glitter effect */
+        @keyframes minecraft-glitter {
+            0%, 100% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .social-link.namemc {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link.namemc::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: linear-gradient(
+                45deg,
+                transparent 20%,
+                rgba(255, 255, 255, 0.1) 25%,
+                transparent 30%,
+                transparent 70%,
+                rgba(255, 255, 255, 0.1) 75%,
+                transparent 80%
+            );
+            background-size: 200% 200%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            animation: minecraft-glitter 3s linear infinite;
+        }
+
+        .social-link.namemc:hover::before {
+            opacity: 1;
+        }
+
+        .social-link.namemc .icon {
+            filter: none;
+            border-radius: 4px;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-link.namemc:hover .icon {
+            filter: none;
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .social-link.namemc:hover {
+            border-color: #2196F3;
+            box-shadow: 
+                0 4px 15px rgba(33, 150, 243, 0.3),
+                0 0 5px rgba(255, 255, 255, 0.2),
+                0 0 10px rgba(33, 150, 243, 0.3);
+        }
+
+        /* Spotify Music Notes Animation */
+        @keyframes floatingNotes {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(20deg);
+            }
+        }
+
+        .social-link.spotify {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-note {
+            position: absolute;
+            color: #1DB954;
+            font-size: 16px;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .social-link.spotify:hover .music-note {
+            animation: floatingNotes 2s ease-out forwards;
+        }
+
+        .social-link.spotify:hover {
+            border-color: #1DB954;
+            box-shadow: 
+                0 4px 15px rgba(29, 185, 84, 0.3),
+                0 0 5px rgba(29, 185, 84, 0.2);
+        }
+
+        /* Discord Ripple Effect */
+        @keyframes discord-ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .social-link.discord {
+            position: relative;
+            overflow: visible;
+        }
+
+        .social-link.discord::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 35px; /* Adjusted to center on Discord icon */
+            width: 20px;
+            height: 20px;
+            background: #5865F2;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .social-link.discord:hover::after {
+            animation: discord-ripple 1.5s ease-out infinite;
+        }
+
+        .social-link.discord:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(88, 101, 242, 0.2) 0%,
+                rgba(88, 101, 242, 0) 100%
+            );
+            border-color: #5865F2;
+            box-shadow: 
+                0 4px 15px rgba(88, 101, 242, 0.3),
+                0 0 5px rgba(88, 101, 242, 0.2);
+            transform: translateX(10px) scale(1.02);
+        }
+
+        .social-link.discord .icon {
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-link.discord:hover .icon {
+            animation: discord-bounce 0.5s ease infinite alternate;
+        }
+
+        @keyframes discord-bounce {
+            from { transform: scale(1) rotate(-5deg); }
+            to { transform: scale(1.2) rotate(5deg); }
+        }
+
+        /* Youtube button effects */
+        .social-link.youtube:hover {
+            border-color: #FF0000;
+            box-shadow: 
+                0 4px 15px rgba(255, 0, 0, 0.3),
+                0 0 5px rgba(255, 0, 0, 0.2);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 0, 0, 0.1) 0%,
+                rgba(255, 0, 0, 0) 100%
+            );
+        }
+
+        .social-link.youtube .icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link.youtube:hover .icon {
+            filter: brightness(0) saturate(100%) invert(12%) sepia(100%) saturate(5725%) hue-rotate(0deg) brightness(116%) contrast(115%);
+            transform: scale(1.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Adjust sparkle colors to include Youtube red */
+        .sparkle:nth-child(5n) { background-color: #00ADB5; }
+        .sparkle:nth-child(5n+1) { background-color: #5865F2; }
+        .sparkle:nth-child(5n+2) { background-color: #1DB954; }
+        .sparkle:nth-child(5n+3) { background-color: #2196F3; }
+        .sparkle:nth-child(5n+4) { background-color: #FF0000; }
+
+        /* Snow effect */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            text-shadow: 0 0 5px #fff,
+                        0 0 10px #fff,
+                        0 0 15px #00ADB5,
+                        0 0 20px #00ADB5;
+            animation: fall linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Make container relative for proper snowflake positioning */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #222831;
+            color: #EEEEEE;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" oncontextmenu="return false;">
+        <h1>My Social Media</h1>
+        <a href="discord:/users/1065884235463933962" class="social-link discord">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" class="icon">
+            <span class="social-text">Discord</span>
+        </a>
+        <a href="https://open.spotify.com/user/31kwxjfos3inpkfus3yycvha3wla" class="social-link spotify">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify" class="icon">
+            <span class="social-text">Spotify</span>
+        </a>
+        <a href="https://www.youtube.com/@erkxp" class="social-link youtube">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384012.png" alt="YouTube" class="icon">
+            <span class="social-text">YouTube</span>
+        </a>
+        <a href="https://namemc.com/profile/_wokie.1" class="social-link namemc">
+            <img src="face.png" alt="NameMC" class="icon">
+            <span class="social-text">NameMC</span>
+        </a>
+    </div>
+
+    <script>
+        // Prevent copy/paste
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Sparkle effect script
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            
+            // Random position within container
+            const container = document.querySelector('.container');
+            const rect = container.getBoundingClientRect();
+            
+            sparkle.style.left = Math.random() * rect.width + 'px';
+            sparkle.style.top = Math.random() * rect.height + 'px';
+            
+            container.appendChild(sparkle);
+            
+            // Remove sparkle after animation
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+
+        // Create new sparkles periodically
+        setInterval(createSparkle, 300);
+
+        // Initial sparkles
+        for(let i = 0; i < 10; i++) {
+            setTimeout(createSparkle, Math.random() * 1000);
+        }
+
+        // Spotify Music Notes Effect
+        const spotifyLink = document.querySelector('.social-link.spotify');
+        const musicNotes = ['♪', '♫', '♩', '♬'];
+        
+        function createMusicNote() {
+            if (!spotifyLink.matches(':hover')) return;
+            
+            const note = document.createElement('span');
+            note.className = 'music-note';
+            note.textContent = musicNotes[Math.floor(Math.random() * musicNotes.length)];
+            
+            // Random position along the button width
+            const xPos = Math.random() * spotifyLink.offsetWidth;
+            note.style.left = `${xPos}px`;
+            note.style.bottom = '0';
+            
+            spotifyLink.appendChild(note);
+            
+            // Remove note after animation completes
+            setTimeout(() => {
+                note.remove();
+            }, 2000);
+        }
+
+        // Create notes while hovering
+        let noteInterval;
+        spotifyLink.addEventListener('mouseenter', () => {
+            noteInterval = setInterval(createMusicNote, 300);
+        });
+        
+        spotifyLink.addEventListener('mouseleave', () => {
+            clearInterval(noteInterval);
+            // Remove any remaining notes
+            spotifyLink.querySelectorAll('.music-note').forEach(note => note.remove());
+        });
+
+        // Snow effect
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = (Math.random() * 10 + 5) + 'px';
+            snowflake.innerHTML = '❅';
+            
+            // Random animation duration between 5-15 seconds
+            const animationDuration = Math.random() * 10 + 5;
+            snowflake.style.animation = `fall ${animationDuration}s linear forwards`;
+            
+            document.body.appendChild(snowflake);
+            
+            // Remove snowflake after animation completes
+            setTimeout(() => {
+                snowflake.remove();
+            }, animationDuration * 1000);
+        }
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 200);
+
+        // Initial snowflakes
+        for(let i = 0; i < 15; i++) {
+            setTimeout(createSnowflake, Math.random() * 1000);
+        }
+    </script>
+</body>
+</html>
