@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handlePasswordInput(password) {
-        if (password === '952008') {
+        if (password === '922008') {
             terminalOutput.innerHTML += 'Access granted. Redirecting to social media information...\n';
             waitingForPassword = false;
             passwordAttempts = 0;
