@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 waitingForPassword = true;
                 break;
             case 'cls':
-                terminalOutput.innerHTML = 'Wok information. [Version 9.2.2008]\n(c) MaiLand. All rights reserved.\n\n';
+                terminalOutput.innerHTML = 'Wok information. [Version 9.5.2008]\n(c) MaiLand. All rights reserved.\n\n';
                 break;
             case 'dir':
                 terminalOutput.innerHTML += ` Directory of ${currentDirectory}\n\n`;
