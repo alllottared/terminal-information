@@ -23,16 +23,28 @@ body {
 }
 
 .terminal {
+    width: 72%;  /* Reduced from 80% */
+    max-width: 810px;  /* Reduced from 900px */
+    height: 54vh;  /* Reduced from 60vh */
+    background-color: rgba(0, 0, 0, 0.85);  /* Make terminal slightly transparent */
+    color: #ffffff;
     position: absolute;
-    touch-action: none; /* Prevents default touch behaviors */
-    user-select: none; /* Prevents text selection while dragging */
-    -webkit-user-select: none;
-    cursor: default;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    resize: both;
+    min-width: 360px;  /* Reduced from 400px */
+    min-height: 270px;  /* Reduced from 300px */
 }
 
 .title-bar {
-    cursor: move; /* Shows move cursor on title bar */
-    touch-action: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #2b2b2b;
+    cursor: move;
+    user-select: none;
 }
 
 .title-bar-left {
